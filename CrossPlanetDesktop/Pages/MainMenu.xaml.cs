@@ -29,5 +29,15 @@ namespace CrossPlanetDesktop.Pages
         {
             NavigationService.Navigate(new ResoursesPage());
         }
+
+        private void TourStats_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TourPage());
+        }
+
+        private void EngineBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

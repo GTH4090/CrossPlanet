@@ -10,8 +10,8 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="TourStats" Width="Auto" Content="Данные о маршруте"/>
-            <Button x:Name="EngineBtn" Content="Контроль автоклава и реактора" Width="Auto"/>
+            <Button x:Name="TourStats" Width="Auto" Content="Данные о маршрутах и заданиях" Click="TourStats_Click"/>
+            <Button x:Name="EngineBtn" Content="Контроль автоклава и реактора" Width="Auto" Click="EngineBtn_Click"/>
             <Button x:Name="ResorsesBtn" Content="Контроль ресурсов" Width="Auto" Click="ResorsesBtn_Click"/>
         </StackPanel>
     </Grid>
