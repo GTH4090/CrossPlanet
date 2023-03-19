@@ -19,16 +19,16 @@ using System.Windows.Threading;
 namespace CrossPlanetDesktop.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для TourPage.xaml
+    /// Логика взаимодействия для EnginePage.xaml
     /// </summary>
-    public partial class TourPage : Page
+    public partial class EnginePage : Page
     {
-        DispatcherTimer timer = new DispatcherTimer();
-        public TourPage()
+        DispatcherTimer Timer = new DispatcherTimer();
+        public EnginePage()
         {
             InitializeComponent();
-            timer.Interval = new TimeSpan(0, 0, 10);
-            timer.Tick += Timer_Tick;
+            Timer.Interval = new TimeSpan(0, 0, 10);
+            Timer.Tick += Timer_Tick;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -40,25 +40,18 @@ namespace CrossPlanetDesktop.Pages
         {
             try
             {
-                tourTaskDataGrid.ItemsSource = Db.TourTask.ToList();
-                pointDataGrid.ItemsSource = Db.Point.ToList();
+                engineLogsDataGrid.ItemsSource = Db.EngineLogs.ToList();
             }
             catch (Exception ex)
             {
 
                 Error(ex.Message);
-
             }
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            LoadData();
         }
 
         private void AddBtn1_Click(object sender, RoutedEventArgs e)
         {
-
+            LoadData();
         }
 
         private void EditBtn1_Click(object sender, RoutedEventArgs e)
@@ -68,27 +61,10 @@ namespace CrossPlanetDesktop.Pages
 
         private void DelBtn1_Click(object sender, RoutedEventArgs e)
         {
-            if(tourTaskDataGrid.SelectedItem != null)
-            {
-                var item = tourTaskDataGrid.SelectedItem as TourTask;
-                Db.TourTask.Remove(item);
-                Db.SaveChanges();
-                LoadData();
-            }
 
         }
 
-        private void AddBtn2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void EditBtn2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void DelBtn2_Click(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

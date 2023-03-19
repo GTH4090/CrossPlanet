@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="BackBtn" Content="Назад" HorizontalAlignment="Left" Click="BackBtn_Click"/>
-
+        <Label Content="Межпланетный экспресс" Width="Auto"/>
         <Button x:Name="ExitBtn" Content="Выход" HorizontalAlignment="Right" Click="ExitBtn_Click"/>
 
         <Frame Grid.Row="1" Grid.Column="0" x:Name="MainFrame" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated" Source="/CrossPlanetDesktop;component/Pages/MainMenu.xaml"/>
