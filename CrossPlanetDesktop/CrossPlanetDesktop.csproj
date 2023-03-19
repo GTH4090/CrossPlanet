@@ -82,6 +82,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ResoursesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\CrosPlanetModel.Context.cs">
@@ -117,6 +121,9 @@
     <Compile Include="Pages\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ResoursesPage.xaml.cs">
+      <DependentUpon>ResoursesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -142,6 +149,11 @@
       <DependentUpon>CrosPlanetModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CrossPlanetDesktop.Models.EngineLogs.datasource" />
+    <None Include="Properties\DataSources\CrossPlanetDesktop.Models.Point.datasource" />
+    <None Include="Properties\DataSources\CrossPlanetDesktop.Models.ResoursesLogs.datasource" />
+    <None Include="Properties\DataSources\CrossPlanetDesktop.Models.TourPoints.datasource" />
+    <None Include="Properties\DataSources\CrossPlanetDesktop.Models.TourTask.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

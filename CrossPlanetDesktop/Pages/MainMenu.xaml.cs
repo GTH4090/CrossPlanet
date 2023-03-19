@@ -24,5 +24,10 @@ namespace CrossPlanetDesktop.Pages
         {
             InitializeComponent();
         }
+
+        private void ResorsesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ResoursesPage());
+        }
     }
 }
