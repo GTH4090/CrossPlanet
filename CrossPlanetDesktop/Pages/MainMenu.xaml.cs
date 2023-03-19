@@ -37,7 +37,7 @@ namespace CrossPlanetDesktop.Pages
 
         private void EngineBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new EnginePage());
         }
     }
 }

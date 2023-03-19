@@ -18,5 +18,6 @@ namespace CrossPlanetDesktop.Models
         public int FurlCount { get; set; }
         public int Temperature { get; set; }
         public System.DateTime Date { get; set; }
+        public int SHCount { get; set; }
     }
 }

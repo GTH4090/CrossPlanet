@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище CrossPlanetDbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище CrossPlanetDbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="EngineLogs">
           <Key>
             <PropertyRef Name="Id" />
@@ -13,6 +13,7 @@
           <Property Name="FurlCount" Type="int" Nullable="false" />
           <Property Name="Temperature" Type="int" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="SHCount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Point">
           <Key>
@@ -101,8 +102,7 @@
             <End Role="TourPoints" EntitySet="TourPoints" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CrossPlanetDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -114,6 +114,7 @@
           <Property Name="FurlCount" Type="Int32" Nullable="false" />
           <Property Name="Temperature" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SHCount" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Point">
           <Key>
@@ -217,6 +218,7 @@
           <EntitySetMapping Name="EngineLogs">
             <EntityTypeMapping TypeName="CrossPlanetDbModel.EngineLogs">
               <MappingFragment StoreEntitySet="EngineLogs">
+                <ScalarProperty Name="SHCount" ColumnName="SHCount" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FurlCount" ColumnName="FurlCount" />
                 <ScalarProperty Name="Temperature" ColumnName="Temperature" />

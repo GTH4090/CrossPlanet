@@ -58,12 +58,17 @@ namespace CrossPlanetDesktop.Pages
 
         private void AddBtn1_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new TourEdit(-1));
         }
 
         private void EditBtn1_Click(object sender, RoutedEventArgs e)
         {
-
+            if (tourTaskDataGrid.SelectedItem != null)
+            {
+                var item = tourTaskDataGrid.SelectedItem as TourTask;
+                NavigationService.Navigate(new TourEdit(item.Id));
+                LoadData();
+            }
         }
 
         private void DelBtn1_Click(object sender, RoutedEventArgs e)

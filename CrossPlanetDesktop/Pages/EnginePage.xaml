@@ -25,6 +25,7 @@
                 <DataGridTextColumn x:Name="dateColumn" Width="SizeToHeader" Header="Date" Binding="{Binding Date}"/>
                 <DataGridTextColumn x:Name="furlCountColumn" Width="SizeToHeader" Header="Furl Count" Binding="{Binding FurlCount}"/>
                 <DataGridTextColumn x:Name="temperatureColumn" Width="SizeToHeader" Header="Temperature" Binding="{Binding Temperature}"/>
+                <DataGridTextColumn x:Name="SHColumn" Width="SizeToHeader" Header="SH Count" Binding="{Binding SHCount}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0">
