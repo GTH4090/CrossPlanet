@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CrossPlanetDesktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="BackBtn" Content="Назад" HorizontalAlignment="Left" Click="BackBtn_Click"/>
+
+        <Button x:Name="ExitBtn" Content="Выход" HorizontalAlignment="Right" Click="ExitBtn_Click"/>
+
+        <Frame Grid.Row="1" Grid.Column="0" x:Name="MainFrame" NavigationUIVisibility="Hidden" Navigated="MainFrame_Navigated" Source="/CrossPlanetDesktop;component/Pages/MainMenu.xaml"/>
     </Grid>
 </Window>

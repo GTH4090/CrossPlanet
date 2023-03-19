@@ -24,5 +24,27 @@ namespace CrossPlanetDesktop
         {
             InitializeComponent();
         }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.GoBack();
+        }
+
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            if(MainFrame.CanGoBack == false)
+            {
+                BackBtn.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                BackBtn.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

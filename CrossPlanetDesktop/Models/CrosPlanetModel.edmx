@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище CrossPlanetDbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EngineLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FurlCount" Type="int" Nullable="false" />
+          <Property Name="Temperature" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Point">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResoursesCount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResoursesLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskId" Type="int" />
+          <Property Name="Value" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TourPoints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TourTaskId" Type="int" Nullable="false" />
+          <Property Name="PointId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TourTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Days" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ResoursesLogs_TourTask">
+          <End Role="TourTask" Type="Self.TourTask" Multiplicity="0..1" />
+          <End Role="ResoursesLogs" Type="Self.ResoursesLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourTask">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ResoursesLogs">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourPoints_Point">
+          <End Role="Point" Type="Self.Point" Multiplicity="1" />
+          <End Role="TourPoints" Type="Self.TourPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Point">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TourPoints">
+              <PropertyRef Name="PointId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourPoints_TourTask">
+          <End Role="TourTask" Type="Self.TourTask" Multiplicity="1" />
+          <End Role="TourPoints" Type="Self.TourPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourTask">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TourPoints">
+              <PropertyRef Name="TourTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище CrossPlanetDbModelContainer">
+          <EntitySet Name="EngineLogs" EntityType="Self.EngineLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Point" EntityType="Self.Point" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResoursesLogs" EntityType="Self.ResoursesLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TourPoints" EntityType="Self.TourPoints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TourTask" EntityType="Self.TourTask" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ResoursesLogs_TourTask" Association="Self.FK_ResoursesLogs_TourTask">
+            <End Role="TourTask" EntitySet="TourTask" />
+            <End Role="ResoursesLogs" EntitySet="ResoursesLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourPoints_Point" Association="Self.FK_TourPoints_Point">
+            <End Role="Point" EntitySet="Point" />
+            <End Role="TourPoints" EntitySet="TourPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourPoints_TourTask" Association="Self.FK_TourPoints_TourTask">
+            <End Role="TourTask" EntitySet="TourTask" />
+            <End Role="TourPoints" EntitySet="TourPoints" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CrossPlanetDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EngineLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FurlCount" Type="Int32" Nullable="false" />
+          <Property Name="Temperature" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Point">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResoursesCount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TourPoints" Relationship="Self.FK_TourPoints_Point" FromRole="Point" ToRole="TourPoints" />
+        </EntityType>
+        <EntityType Name="ResoursesLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int32" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TourTask" Relationship="Self.FK_ResoursesLogs_TourTask" FromRole="ResoursesLogs" ToRole="TourTask" />
+        </EntityType>
+        <EntityType Name="TourPoints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TourTaskId" Type="Int32" Nullable="false" />
+          <Property Name="PointId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Point" Relationship="Self.FK_TourPoints_Point" FromRole="TourPoints" ToRole="Point" />
+          <NavigationProperty Name="TourTask" Relationship="Self.FK_TourPoints_TourTask" FromRole="TourPoints" ToRole="TourTask" />
+        </EntityType>
+        <EntityType Name="TourTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Days" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ResoursesLogs" Relationship="Self.FK_ResoursesLogs_TourTask" FromRole="TourTask" ToRole="ResoursesLogs" />
+          <NavigationProperty Name="TourPoints" Relationship="Self.FK_TourPoints_TourTask" FromRole="TourTask" ToRole="TourPoints" />
+        </EntityType>
+        <Association Name="FK_TourPoints_Point">
+          <End Role="Point" Type="Self.Point" Multiplicity="1" />
+          <End Role="TourPoints" Type="Self.TourPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Point">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TourPoints">
+              <PropertyRef Name="PointId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResoursesLogs_TourTask">
+          <End Role="TourTask" Type="Self.TourTask" Multiplicity="0..1" />
+          <End Role="ResoursesLogs" Type="Self.ResoursesLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourTask">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ResoursesLogs">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TourPoints_TourTask">
+          <End Role="TourTask" Type="Self.TourTask" Multiplicity="1" />
+          <End Role="TourPoints" Type="Self.TourPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TourTask">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TourPoints">
+              <PropertyRef Name="TourTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CrossPlanetDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EngineLogs" EntityType="Self.EngineLogs" />
+          <EntitySet Name="Point" EntityType="Self.Point" />
+          <EntitySet Name="ResoursesLogs" EntityType="Self.ResoursesLogs" />
+          <EntitySet Name="TourPoints" EntityType="Self.TourPoints" />
+          <EntitySet Name="TourTask" EntityType="Self.TourTask" />
+          <AssociationSet Name="FK_TourPoints_Point" Association="Self.FK_TourPoints_Point">
+            <End Role="Point" EntitySet="Point" />
+            <End Role="TourPoints" EntitySet="TourPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResoursesLogs_TourTask" Association="Self.FK_ResoursesLogs_TourTask">
+            <End Role="TourTask" EntitySet="TourTask" />
+            <End Role="ResoursesLogs" EntitySet="ResoursesLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TourPoints_TourTask" Association="Self.FK_TourPoints_TourTask">
+            <End Role="TourTask" EntitySet="TourTask" />
+            <End Role="TourPoints" EntitySet="TourPoints" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CrossPlanetDbModelContainer" CdmEntityContainer="CrossPlanetDbEntities">
+          <EntitySetMapping Name="EngineLogs">
+            <EntityTypeMapping TypeName="CrossPlanetDbModel.EngineLogs">
+              <MappingFragment StoreEntitySet="EngineLogs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FurlCount" ColumnName="FurlCount" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Point">
+            <EntityTypeMapping TypeName="CrossPlanetDbModel.Point">
+              <MappingFragment StoreEntitySet="Point">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ResoursesCount" ColumnName="ResoursesCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResoursesLogs">
+            <EntityTypeMapping TypeName="CrossPlanetDbModel.ResoursesLogs">
+              <MappingFragment StoreEntitySet="ResoursesLogs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TourPoints">
+            <EntityTypeMapping TypeName="CrossPlanetDbModel.TourPoints">
+              <MappingFragment StoreEntitySet="TourPoints">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TourTaskId" ColumnName="TourTaskId" />
+                <ScalarProperty Name="PointId" ColumnName="PointId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TourTask">
+            <EntityTypeMapping TypeName="CrossPlanetDbModel.TourTask">
+              <MappingFragment StoreEntitySet="TourTask">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
