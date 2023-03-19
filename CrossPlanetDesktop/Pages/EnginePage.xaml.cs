@@ -51,17 +51,28 @@ namespace CrossPlanetDesktop.Pages
 
         private void AddBtn1_Click(object sender, RoutedEventArgs e)
         {
-            LoadData();
+            NavigationService.Navigate(new EngineEdit(-1));
         }
 
         private void EditBtn1_Click(object sender, RoutedEventArgs e)
         {
-
+            if (engineLogsDataGrid.SelectedItem != null)
+            {
+                var item = engineLogsDataGrid.SelectedItem as EngineLogs;
+                NavigationService.Navigate(new EngineEdit(item.Id));
+                LoadData();
+            }
         }
 
         private void DelBtn1_Click(object sender, RoutedEventArgs e)
         {
-
+            if(engineLogsDataGrid.SelectedItem != null)
+            {
+                var item = engineLogsDataGrid.SelectedItem as EngineLogs;
+                Db.EngineLogs.Remove(item);
+                Db.SaveChanges();
+                LoadData();
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

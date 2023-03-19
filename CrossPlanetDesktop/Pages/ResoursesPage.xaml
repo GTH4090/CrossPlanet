@@ -20,7 +20,7 @@
 
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="resoursesLogsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected"  ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="resoursesLogsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="dateColumn" Width="SizeToHeader" Header="Date" Binding="{Binding Date}"/>
                 <DataGridTextColumn x:Name="taskIdColumn" Width="SizeToHeader" Header="Task Id" Binding="{Binding TourTask.Id}"/>

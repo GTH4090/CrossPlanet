@@ -78,6 +78,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\EngineEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EnginePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +137,9 @@
     </Compile>
     <Compile Include="Models\TourTask.cs">
       <DependentUpon>CrosPlanetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EngineEdit.xaml.cs">
+      <DependentUpon>EngineEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EnginePage.xaml.cs">
       <DependentUpon>EnginePage.xaml</DependentUpon>

@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
 
 
-        <DataGrid x:Name="engineLogsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="engineLogsDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" IsReadOnly="True" EnableRowVirtualization="True" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="dateColumn" Width="SizeToHeader" Header="Date" Binding="{Binding Date}"/>
                 <DataGridTextColumn x:Name="furlCountColumn" Width="SizeToHeader" Header="Furl Count" Binding="{Binding FurlCount}"/>
