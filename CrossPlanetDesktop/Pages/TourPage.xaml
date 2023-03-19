@@ -30,6 +30,7 @@
                 <DataGridTextColumn x:Name="dateColumn" Width="SizeToHeader" Header="Date" Binding="{Binding Date}"/>
                 <DataGridTextColumn x:Name="daysColumn" Width="SizeToHeader" Header="Days" Binding="{Binding Days}"/>
                 <DataGridTextColumn x:Name="idColumn" Width="SizeToHeader" Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn x:Name="ResoursesNeedColumn" Width="SizeToHeader" Header="ResoursesNeed" Binding="{Binding ResoursesNeed}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="pointDataGrid" AutoGenerateColumns="False" Grid.Column="1" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource pointViewSource}}" RowDetailsVisibilityMode="VisibleWhenSelected">

@@ -46,6 +46,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Days" Type="int" Nullable="false" />
+          <Property Name="ResoursesNeed" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_ResoursesLogs_TourTask">
           <End Role="TourTask" Type="Self.TourTask" Multiplicity="0..1" />
@@ -153,6 +154,7 @@
           <Property Name="Days" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ResoursesLogs" Relationship="Self.FK_ResoursesLogs_TourTask" FromRole="TourTask" ToRole="ResoursesLogs" />
           <NavigationProperty Name="TourPoints" Relationship="Self.FK_TourPoints_TourTask" FromRole="TourTask" ToRole="TourPoints" />
+          <Property Name="ResoursesNeed" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_TourPoints_Point">
           <End Role="Point" Type="Self.Point" Multiplicity="1" />
@@ -256,6 +258,7 @@
           <EntitySetMapping Name="TourTask">
             <EntityTypeMapping TypeName="CrossPlanetDbModel.TourTask">
               <MappingFragment StoreEntitySet="TourTask">
+                <ScalarProperty Name="ResoursesNeed" ColumnName="ResoursesNeed" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Days" ColumnName="Days" />

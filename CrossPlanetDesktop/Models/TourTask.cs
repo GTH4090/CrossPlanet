@@ -24,6 +24,7 @@ namespace CrossPlanetDesktop.Models
         public int Id { get; set; }
         public System.DateTime Date { get; set; }
         public int Days { get; set; }
+        public int ResoursesNeed { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ResoursesLogs> ResoursesLogs { get; set; }

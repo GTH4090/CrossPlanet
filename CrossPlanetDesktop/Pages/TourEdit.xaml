@@ -20,6 +20,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -29,7 +30,9 @@
             <DatePicker x:Name="dateDatePicker" VerticalAlignment="Center" SelectedDate="{Binding Date, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
             <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Days:"/>
             <TextBox x:Name="daysTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Days, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-        </Grid>
+                <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="ResoursesNEed:"/>
+                <TextBox x:Name="ResoursesneedTextBox" Width="120" VerticalAlignment="Center" Text="{Binding ResoursesNeed, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            </Grid>
             <Button x:Name="OkBtn" Content="Ок" Click="OkBtn_Click"/>
             <Button x:Name="CancelBtn" Content="ОТмена" Click="CancelBtn_Click"/>
         </StackPanel>
