@@ -52,12 +52,16 @@ namespace CrossPlanetDesktop.Pages
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ResoursesEdit(-1));
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (resoursesLogsDataGrid.SelectedItem != null)
+            {
+                var item = resoursesLogsDataGrid.SelectedItem as ResoursesLogs;
+                NavigationService.Navigate(new ResoursesEdit(item.Id));
+            }
         }
 
         private void DelBtn_Click(object sender, RoutedEventArgs e)
@@ -67,6 +71,7 @@ namespace CrossPlanetDesktop.Pages
                 var item = resoursesLogsDataGrid.SelectedItem as ResoursesLogs;
                 Db.ResoursesLogs.Remove(item);
                 Db.SaveChanges();
+                LoadData();
             }
         }
 
